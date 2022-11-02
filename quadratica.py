@@ -8,25 +8,31 @@ def ehPrimo(n):
             return False
     return True
 
-def f(a,b,n):
-    return n*(a+n)+b
+def pegarPrimos(n):
+    prime = [True for i in range(n+1)]
+    p = 2
+    while (p * p <= n):
+        if (prime[p] == True):
+            for i in range(p * p, n+1, p):
+                prime[i] = False
+        p += 1
+    return  [2,] + [p for p in range(3,n+1, 2) if prime[p]]
 
-intervalo = range(-1000, 1000)
-melhorCombinacao = (0,0)
-intervaloMelhor = 0
-for a in intervalo:
-    for b in intervalo:
-        maiorIntervalo = 0
-        qtConsecutivos = 0
-        for n in range(-b,b):
-            if ehPrimo(f(a,b,n)):
-               qtConsecutivos +=1
-            else:
-                maiorIntervalo = max(maiorIntervalo,qtConsecutivos)
-                qtConsecutivos = 0
-    if maiorIntervalo > intervaloMelhor:
-        melhorCombinacao = (a,b)
-        intervaloMelhor = maiorIntervalo
-print(a,b)
+                                                                                                                                         
+
+primos = pegarPrimos(1000)
+maiorIntervalo = 0
+for a in range(-1000, 1000):
+    for b in primos:
+        n = 0
+        f  = n*(a+n)+b
+        while  f in primos or ehPrimo(f):
+            f+= n+n+1+a
+            n+=1
+        if n >= maiorIntervalo:
+            melhorCombinacao = (a,b)
+            maiorIntervalo = n
+print(melhorCombinacao)
+print(maiorIntervalo)
             
             
