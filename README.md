@@ -2,4 +2,4 @@
 Grupo: 
 - Tales da Silva Amaral
 - Rodrigo
-- Iane Martins
+- André
