@@ -1,5 +1,5 @@
 # TrabalhoProg
 Grupo: 
 - Tales da Silva Amaral
-- Rodrigo
+- Maria Luz
 - André
